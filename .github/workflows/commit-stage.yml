@@ -21,7 +21,7 @@ jobs:
           cache: gradle
 
       - name: Code vulnerability scanning
-        uses: anchore/scan-actions@v3
+        uses: anchore/scan-action@v3
 
         id: scan
 
