@@ -22,7 +22,7 @@ class BookJsonTests {
         assertThat(jsonContent).extractingJsonPathStringValue("@.title").isEqualTo(book.title());
         assertThat(jsonContent).extractingJsonPathStringValue("@.author").isEqualTo(book.author());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.price").isEqualTo(book.price());
-        assertThat(jsonContent).extractingJsonPathNumberValue("@.publisher").isEqualTo(book.publisher());
+        assertThat(jsonContent).extractingJsonPathStringValue("@.publisher").isEqualTo(book.publisher());
     }
 
     @Test
@@ -31,7 +31,8 @@ class BookJsonTests {
                       { "isbn": "1234567890",
                       "title": "Title",
                       "author": "Author", 
-                      "price": 9.90 }
+                      "price": 9.90,
+                      "publisher": "Publisher"}
                       """;
         assertThat(json.parse(content)).
             usingRecursiveComparison().isEqualTo(Book.of("1234567890", "Title", "Author", 9.90, "Publisher"));
